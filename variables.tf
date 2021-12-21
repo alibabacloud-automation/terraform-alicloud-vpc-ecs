@@ -1,19 +1,19 @@
 variable "name" {
   description = "The specification of module name."
   type        = string
-  default     = "tf-vpc-ecs"
+  default     = ""
 }
 
 variable "description" {
   description = "The specification of module description."
   type        = string
-  default     = "tf-vpc-ecs-description"
+  default     = ""
 }
 
 variable "instance_type" {
   description = "The specification of the instance type."
   type        = string
-  default     = "ecs.n4.large"
+  default     = ""
 }
 
 variable "system_disk_category" {
@@ -25,25 +25,31 @@ variable "system_disk_category" {
 variable "system_disk_name" {
   description = "The specification of the system disk name."
   type        = string
-  default     = "system_disk"
+  default     = ""
 }
 
 variable "system_disk_description" {
   description = "The specification of the system disk description."
   type        = string
-  default     = "system_disk_description"
+  default     = ""
 }
 
 variable "image_id" {
   description = "The specification of the image id."
   type        = string
-  default     = "ubuntu_18_04_64_20G_alibase_20190624.vhd"
+  default     = ""
 }
 
 variable "internet_max_bandwidth_out" {
   description = "The specification of the internet max bandwidth out."
   type        = number
   default     = 10
+}
+
+variable "data_disks_name" {
+  description = "The name of the data disk."
+  type        = string
+  default     = ""
 }
 
 variable "ecs_size" {
@@ -58,6 +64,12 @@ variable "category" {
   default     = "cloud_efficiency"
 }
 
+variable "encrypted" {
+  description = "Encrypted the data in this disk."
+  type        = bool
+  default     = false
+}
+
 variable "availability_zone" {
   description = "The available zone to launch modules."
   type        = string
@@ -67,11 +79,11 @@ variable "availability_zone" {
 variable "vpc_cidr_block" {
   description = "The cidr block of VPC information."
   type        = string
-  default     = "192.168.1.0/24"
+  default     = "172.16.0.0/12"
 }
 
 variable "vs_cidr_block" {
   description = "The cidr block of VSwitch information."
   type        = string
-  default     = "192.168.1.0/24"
+  default     = "172.16.0.0/21"
 }
